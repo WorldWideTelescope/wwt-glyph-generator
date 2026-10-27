@@ -5,11 +5,17 @@ as well as associated XML files instructing the WWT renderer about the locations
 
 ## Usage
 
-To create the glyph files, simply install the package requirements in your environment and run the script:
+To create the glyph files, simply install the package requirements in your environment and run this package as a module
 
-```python
-python make_glyphs.py
+```bash
+# All command-line arguments are optional
+python -m wwt_glyph_generator \
+--ttf=<path-to-ttf>
+--version=<version #>
+--characters=<string of characters to generate glyphs for>
+--output-dir=<output-dir>
+--fail-on-missing  # Omit if you want to generate glyphs even if font does not include all requested characters
 ```
 
-Running without arguments, as above, will generate glyph files tagged as version 2, in a `docs` subdirectory of the current
-directory. If desired, one can adjust the version number, output directory, and characters used via command-line arguments.
+Running without arguments, will generate glyph files using our current defaults: version 2, in a `docs` subdirectory of the current
+directory, using the default WWT font (Microsoft Sans Serif).
